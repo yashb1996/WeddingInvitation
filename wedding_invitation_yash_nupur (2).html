@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yash & Nupur — Wedding Invitation</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Cormorant Garamond',serif;background:#0d0814;overflow-x:hidden}
+
+/* ── PETALS ── */
+.petals{position:fixed;inset:0;pointer-events:none;z-index:999;overflow:hidden}
+.fp{position:absolute;top:-20px;width:var(--w);height:var(--h);border-radius:60% 40% 55% 45%/50% 55% 45% 50%;background:var(--c);opacity:0;animation:fpfall var(--d) ease-in var(--dl) infinite}
+@keyframes fpfall{0%{opacity:0;transform:translateY(-20px) rotate(0) translateX(0)}8%{opacity:.75}88%{opacity:.45}100%{opacity:0;transform:translateY(106vh) rotate(var(--r)) translateX(var(--x))}}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(38px);transition:opacity 1s,transform 1s}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ═══════════════════════════════════
+   SCENE 1 — GOLDEN MUGHAL ARCH HERO
+   (ref image 1: golden columns, arch,
+    hanging lanterns, 2 peacocks,
+    palace domes, vines, mosaic floor)
+═══════════════════════════════════ */
+.scene1{position:relative;width:100%;min-height:100vh;overflow:hidden;
+  background:linear-gradient(180deg,#b8dce8 0%,#cce8f2 25%,#daf0ec 60%,#f0ece0 100%)}
+.s1-bg{position:absolute;inset:0;width:100%;height:100%}
+
+/* Lantern sway */
+.ls{animation:lsway var(--ls,3.5s) ease-in-out infinite alternate;transform-origin:top center}
+@keyframes lsway{0%{transform:rotate(-5deg)}100%{transform:rotate(5deg)}}
+/* glow pulse */
+.gp{animation:gpulse 2.5s ease-in-out infinite alternate}
+@keyframes gpulse{0%{opacity:.5;transform:scale(1)}100%{opacity:1;transform:scale(1.4)}}
+/* peacock float */
+.pf{animation:pfl 5s ease-in-out infinite alternate}
+@keyframes pfl{0%{transform:translateY(0)}100%{transform:translateY(-12px)}}
+/* flying bird */
+.fly{animation:flybird 9s ease-in-out infinite}
+@keyframes flybird{0%{transform:translate(-60px,0) rotate(-6deg)}50%{transform:translate(70px,-38px) rotate(4deg)}100%{transform:translate(-60px,0) rotate(-6deg)}}
+/* lotus bob */
+.lb{animation:lotb 3s ease-in-out infinite}
+@keyframes lotb{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+/* rose sway */
+.rs{animation:rsway 4s ease-in-out infinite alternate;transform-origin:bottom center}
+@keyframes rsway{0%{transform:rotate(-3deg)}100%{transform:rotate(3deg)}}
+/* elephant walk */
+.ew{animation:ewalk 5s ease-in-out infinite}
+@keyframes ewalk{0%,100%{transform:translateX(0)}50%{transform:translateX(8px)}}
+/* peacock strut */
+.ps{animation:pstrut 4.5s ease-in-out infinite}
+@keyframes pstrut{0%,100%{transform:translateX(0) scaleX(1)}50%{transform:translateX(7px) scaleX(1)}}
+
+/* hero text */
+.hero-text{position:relative;z-index:50;text-align:center;padding:14vh 30px 8vh;pointer-events:none}
+.ht-om{font-family:'Cinzel',serif;font-size:12px;letter-spacing:6px;color:#3a0616;opacity:.85;text-transform:uppercase;animation:risein 1.2s .3s both}
+.ht-icon{font-size:28px;display:block;margin:6px 0;animation:risein 1.2s .5s both}
+.ht-names{font-family:'Cinzel Decorative',serif;font-size:clamp(34px,6.5vw,62px);font-weight:700;color:#3a0616;letter-spacing:4px;line-height:1;text-shadow:0 4px 30px rgba(90,8,32,.22);animation:risein 1.2s .7s both}
+.ht-weds{font-family:'Great Vibes',cursive;font-size:clamp(44px,8vw,70px);color:#b02858;line-height:1.1;display:block;text-shadow:0 4px 28px rgba(176,40,88,.28);animation:risein 1.2s .9s both,wfloat 4s 2s ease-in-out infinite}
+@keyframes wfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.ht-tag{font-size:16px;font-style:italic;color:#5a2840;margin-top:10px;animation:risein 1.2s 1.1s both}
+@keyframes risein{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.scroll-cue{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);font-family:'Cinzel',serif;font-size:10px;letter-spacing:5px;color:#4a0820;opacity:.6;text-transform:uppercase;animation:bob 2.2s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(7px)}}
+
+/* ═══════════════════════════════════
+   SCENE 2 — PINK PALACE / ELEPHANT
+   (ref image 2: mint sky, misty blue
+    palace, pink palace+teal domes,
+    elephant with jhul, flying peacock,
+    garden, pink roses corners, lotus)
+═══════════════════════════════════ */
+.scene2{position:relative;width:100%;min-height:80vh;overflow:hidden;
+  background:linear-gradient(180deg,#f0e8f4 0%,#f5ecf8 50%,#ece4f4 100%);
+  display:flex;align-items:center;justify-content:center;flex-direction:column;padding:60px 20px 50px}
+.s2-bg{position:absolute;inset:0;width:100%;height:100%}
+
+/* ═══════════════════════════════════
+   EVENTS SECTION
+═══════════════════════════════════ */
+.events-sec{position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#fdf4ee 0%,#f8eaf4 55%,#f0e4f4 100%);padding:68px 20px 60px}
+.sec-lbl{text-align:center;font-family:'Cinzel',serif;font-size:11px;letter-spacing:6px;color:#c9933a;text-transform:uppercase;margin-bottom:6px}
+.sec-script{text-align:center;font-family:'Great Vibes',cursive;font-size:48px;color:#4a0820;text-shadow:0 2px 14px rgba(74,8,32,.1);margin-bottom:30px}
+.day-hd{text-align:center;font-family:'Cinzel',serif;font-size:11.5px;letter-spacing:4px;color:#4a0820;text-transform:uppercase;
+  padding:10px 28px;border-top:1px solid rgba(201,147,58,.45);border-bottom:1px solid rgba(201,147,58,.45);
+  background:linear-gradient(135deg,rgba(201,147,58,.13),rgba(201,147,58,.05));
+  max-width:460px;margin:0 auto 14px}
+.ev-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:660px;margin:0 auto 0}
+.ev-row.two{grid-template-columns:repeat(2,1fr);max-width:440px}
+.ev-row.one{grid-template-columns:1fr;max-width:320px}
+.ev{text-align:center;padding:15px 10px 13px;background:rgba(255,255,255,.68);
+  border:1px solid rgba(201,147,58,.26);position:relative;overflow:hidden;
+  clip-path:polygon(10px 0,calc(100% - 10px) 0,100% 10px,100% calc(100% - 10px),calc(100% - 10px) 100%,10px 100%,0 calc(100% - 10px),0 10px);
+  transition:transform .3s,box-shadow .3s}
+.ev::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.55),transparent 55%)}
+.ev:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(150,30,80,.18)}
+.ev.star{background:linear-gradient(145deg,rgba(74,8,32,.1),rgba(201,147,58,.14));border-color:#c9933a;box-shadow:0 0 24px rgba(201,147,58,.25)}
+.ev-ic{font-size:23px;margin-bottom:7px}
+.ev-nm{font-family:'Cinzel',serif;font-size:9px;letter-spacing:1.8px;color:#4a0820;text-transform:uppercase;font-weight:600;margin-bottom:5px}
+.ev-dt{font-size:12px;color:#b02858;font-style:italic;line-height:1.6}
+.ev-tm{font-size:11px;color:#8a4068;margin-top:3px}
+.day-gap{margin-top:24px}
+
+/* ═══════════════════════════════════
+   LAGNA SECTION
+═══════════════════════════════════ */
+.lagna{position:relative;overflow:hidden;
+  background:linear-gradient(155deg,#3d0616 0%,#5a0a28 45%,#280410 100%);
+  padding:88px 40px;text-align:center}
+.lagna::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 88% 72% at 50% 35%,rgba(232,200,122,.17),transparent 70%)}
+.lagna::after{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.012) 0,rgba(255,255,255,.012) 1px,transparent 1px,transparent 12px)}
+.l-lbl{font-family:'Cinzel',serif;font-size:11px;letter-spacing:6px;color:#e8c87a;text-transform:uppercase;position:relative;z-index:2}
+.l-title{font-family:'Great Vibes',cursive;font-size:clamp(48px,8vw,72px);color:#fff;text-shadow:0 0 40px rgba(232,200,122,.5);line-height:1.05;position:relative;z-index:2}
+.l-names{font-family:'Cinzel Decorative',serif;font-size:clamp(22px,4vw,36px);color:#e8c87a;letter-spacing:3px;position:relative;z-index:2;margin:5px 0}
+.l-date{font-family:'Cinzel',serif;font-size:20px;color:#e8c87a;letter-spacing:3px;margin:8px 0 4px;position:relative;z-index:2}
+.l-time{font-size:16px;color:rgba(255,255,255,.85);font-style:italic;position:relative;z-index:2}
+.l-time strong{color:#e8c87a;font-style:normal}
+.l-sub{margin-top:13px;font-size:14px;color:rgba(255,255,255,.6);font-style:italic;position:relative;z-index:2;line-height:1.7}
+.sparks{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.spk{position:absolute;opacity:0;font-size:var(--ss);animation:spkup var(--sd) ease-in var(--sl) infinite}
+@keyframes spkup{0%{opacity:0;transform:translateY(0) scale(.4)}25%{opacity:.9}100%{opacity:0;transform:translateY(-110px) scale(1.5)}}
+
+/* ═══════════════════════════════════
+   VENUE
+═══════════════════════════════════ */
+.venue{position:relative;overflow:hidden;
+  background:linear-gradient(180deg,#f4e0f0 0%,#f8eaf4 100%);
+  padding:75px 40px 60px;text-align:center}
+.v-lbl{font-family:'Cinzel',serif;font-size:11px;letter-spacing:5px;color:#c9933a;text-transform:uppercase;margin-bottom:8px}
+.v-name{font-family:'Cinzel Decorative',serif;font-size:25px;color:#4a0820;margin-bottom:5px}
+.v-addr{font-size:15px;color:#7a3055;font-style:italic}
+
+/* ═══════════════════════════════════
+   FOOTER
+═══════════════════════════════════ */
+.footer{background:linear-gradient(145deg,#3a0618,#1a040c);padding:44px 40px 52px;text-align:center;position:relative}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(to right,transparent,#c9933a,transparent)}
+.f-msg{font-family:'Great Vibes',cursive;font-size:32px;color:#e8c87a;margin-bottom:8px}
+.f-fam{font-size:13px;color:rgba(255,255,255,.46);letter-spacing:2px;font-style:italic}
+
+/* gold divider */
+.gdiv{display:flex;align-items:center;gap:12px;padding:0 32px;margin:18px auto;max-width:500px}
+.gdiv-line{flex:1;height:1px;background:linear-gradient(to right,transparent,#c9933a,transparent)}
+.gdiv-gem{color:#c9933a;font-size:13px;letter-spacing:3px}
+</style>
+</head>
+<body>
+
+<!-- PETALS -->
+<div class="petals" id="petals"></div>
+
+<!-- ═══════════════════════════════════════════════════
+     SCENE 1 — GOLDEN MUGHAL ARCH (Reference Image 1)
+═══════════════════════════════════════════════════ -->
+<section class="scene1">
+<svg class="s1-bg" viewBox="0 0 900 1000" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <radialGradient id="sky1" cx="50%" cy="0%" r="100%">
+    <stop offset="0%" stop-color="#bcdcea"/><stop offset="55%" stop-color="#cce8f2"/><stop offset="100%" stop-color="#ddf0e8"/>
+  </radialGradient>
+  <radialGradient id="colGrad" cx="30%" cy="50%" r="70%">
+    <stop offset="0%" stop-color="#e2d4b4"/><stop offset="100%" stop-color="#b8a880"/>
+  </radialGradient>
+  <radialGradient id="domeGold" cx="50%" cy="30%" r="70%">
+    <stop offset="0%" stop-color="#ece0c0"/><stop offset="100%" stop-color="#c8b890"/>
+  </radialGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="mist"><feGaussianBlur stdDeviation="4"/></filter>
+  <filter id="soft"><feGaussianBlur stdDeviation="1.8"/></filter>
+</defs>
+
+<!-- SKY -->
+<rect width="900" height="1000" fill="url(#sky1)"/>
+<!-- clouds -->
+<ellipse cx="220" cy="55" rx="140" ry="42" fill="rgba(255,255,255,.48)" filter="url(#mist)"/>
+<ellipse cx="500" cy="35" rx="110" ry="32" fill="rgba(255,255,255,.38)" filter="url(#mist)"/>
+<ellipse cx="760" cy="65" rx="130" ry="38" fill="rgba(255,255,255,.42)" filter="url(#mist)"/>
+<ellipse cx="370" cy="105" rx="90" ry="28" fill="rgba(255,255,255,.3)" filter="url(#mist)"/>
+
+<!-- ── DISTANT MISTY PALACE (background, ref img1 grey palace) ── -->
+<g filter="url(#mist)" opacity=".32">
+  <rect x="280" y="380" width="340" height="360" fill="#90b0c8" rx="2"/>
+  <ellipse cx="450" cy="380" rx="100" ry="72" fill="#88a8c0"/>
+  <ellipse cx="450" cy="315" rx="50" ry="70" fill="#80a0b8"/>
+  <ellipse cx="450" cy="252" rx="25" ry="32" fill="#789ab0"/>
+  <circle cx="450" cy="222" r="7" fill="#9a8858"/>
+  <!-- side minarets -->
+  <rect x="270" y="415" width="22" height="240" fill="#88a8c0"/>
+  <ellipse cx="281" cy="415" rx="16" ry="24" fill="#80a0b8"/>
+  <rect x="608" y="415" width="22" height="240" fill="#88a8c0"/>
+  <ellipse cx="619" cy="415" rx="16" ry="24" fill="#80a0b8"/>
+  <!-- windows -->
+  <path d="M310,450 Q328,433 346,450 L346,500 Q328,512 310,500Z" fill="#78a0b0" opacity=".65"/>
+  <path d="M362,450 Q380,433 398,450 L398,500 Q380,512 362,500Z" fill="#78a0b0" opacity=".65"/>
+  <path d="M414,450 Q432,433 450,450 L450,500 Q432,512 414,500Z" fill="#78a0b0" opacity=".65"/>
+  <path d="M466,450 Q484,433 502,450 L502,500 Q484,512 466,500Z" fill="#78a0b0" opacity=".65"/>
+  <path d="M518,450 Q536,433 554,450 L554,500 Q536,512 518,500Z" fill="#78a0b0" opacity=".65"/>
+</g>
+
+<!-- ── LEFT GOLDEN SANDSTONE TOWER (ref img1 left structure) ── -->
+<g opacity=".9">
+  <!-- Tower body -->
+  <rect x="32" y="210" width="190" height="620" fill="#ddd0b0" rx="3"/>
+  <rect x="44" y="210" width="166" height="620" fill="#e6d8b8"/>
+  <!-- Battlement merlons -->
+  <rect x="32" y="198" width="190" height="20" fill="#d0c4a0"/>
+  <rect x="37" y="184" width="24" height="18" fill="#d0c4a0" rx="2"/>
+  <rect x="70" y="184" width="24" height="18" fill="#d0c4a0" rx="2"/>
+  <rect x="103" y="184" width="24" height="18" fill="#d0c4a0" rx="2"/>
+  <rect x="136" y="184" width="24" height="18" fill="#d0c4a0" rx="2"/>
+  <rect x="169" y="184" width="24" height="18" fill="#d0c4a0" rx="2"/>
+  <!-- Dome -->
+  <ellipse cx="127" cy="210" rx="68" ry="48" fill="url(#domeGold)"/>
+  <ellipse cx="127" cy="168" rx="34" ry="48" fill="#d8cca8"/>
+  <ellipse cx="127" cy="126" rx="17" ry="24" fill="#ccbf9c"/>
+  <circle cx="127" cy="104" r="6" fill="#c9933a"/>
+  <line x1="127" y1="98" x2="127" y2="86" stroke="#c9933a" stroke-width="2.5"/>
+  <ellipse cx="127" cy="84" rx="9" ry="4" fill="#c9933a"/>
+  <!-- Gold finial chain decor -->
+  <path d="M127,104 Q108,110 100,120" stroke="#c9933a" stroke-width=".8" fill="none" opacity=".5"/>
+  <path d="M127,104 Q146,110 154,120" stroke="#c9933a" stroke-width=".8" fill="none" opacity=".5"/>
+  <!-- Jaali windows (lattice arched) -->
+  <path d="M58,268 Q84,250 110,268 L110,328 Q84,342 58,328Z" fill="rgba(180,160,110,.25)" stroke="#c9933a" stroke-width=".9"/>
+  <line x1="63" y1="272" x2="105" y2="324" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <line x1="105" y1="272" x2="63" y2="324" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <line x1="84" y1="268" x2="84" y2="328" stroke="#c9933a" stroke-width=".5" opacity=".35"/>
+  <path d="M118,268 Q144,250 170,268 L170,328 Q144,342 118,328Z" fill="rgba(180,160,110,.25)" stroke="#c9933a" stroke-width=".9"/>
+  <line x1="123" y1="272" x2="165" y2="324" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <line x1="165" y1="272" x2="123" y2="324" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <path d="M58,362 Q84,344 110,362 L110,422 Q84,436 58,422Z" fill="rgba(180,160,110,.22)" stroke="#c9933a" stroke-width=".8"/>
+  <line x1="63" y1="366" x2="105" y2="418" stroke="#c9933a" stroke-width=".5" opacity=".35"/>
+  <line x1="105" y1="366" x2="63" y2="418" stroke="#c9933a" stroke-width=".5" opacity=".35"/>
+  <path d="M118,362 Q144,344 170,362 L170,422 Q144,436 118,422Z" fill="rgba(180,160,110,.22)" stroke="#c9933a" stroke-width=".8"/>
+  <path d="M58,458 Q84,440 110,458 L110,518 Q84,532 58,518Z" fill="rgba(180,160,110,.18)" stroke="#c9933a" stroke-width=".7"/>
+  <path d="M118,458 Q144,440 170,458 L170,518 Q144,532 118,518Z" fill="rgba(180,160,110,.18)" stroke="#c9933a" stroke-width=".7"/>
+  <!-- Gold border bands -->
+  <rect x="32" y="228" width="190" height="5" fill="#c9933a" opacity=".55"/>
+  <rect x="32" y="346" width="190" height="3" fill="#c9933a" opacity=".4"/>
+  <rect x="32" y="440" width="190" height="3" fill="#c9933a" opacity=".38"/>
+  <rect x="32" y="534" width="190" height="3" fill="#c9933a" opacity=".35"/>
+  <!-- Balcony ledge -->
+  <rect x="44" y="578" width="166" height="38" fill="#d8cc9e" opacity=".9"/>
+  <rect x="36" y="614" width="180" height="7" fill="#c9933a" opacity=".5"/>
+  <!-- Small diya on ledge -->
+  <line x1="100" y1="228" x2="100" y2="252" stroke="#8a6828" stroke-width="1.2"/>
+  <ellipse cx="100" cy="260" rx="7" ry="10" fill="#c97020" opacity=".88"/>
+  <circle cx="100" cy="258" r="3" fill="#ffe070" filter="url(#glow)"/>
+  <!-- Hanging diya lanterns on tower -->
+  <line x1="155" y1="228" x2="155" y2="260" stroke="#8a6828" stroke-width="1.2"/>
+  <ellipse cx="155" cy="270" rx="7" ry="10" fill="#4a9090" opacity=".85"/>
+  <circle cx="155" cy="268" r="2.5" fill="#ffe898" filter="url(#glow)"/>
+</g>
+
+<!-- ── RIGHT TOWER (ref img1 right structure with balcony) ── -->
+<g opacity=".9">
+  <rect x="678" y="190" width="190" height="650" fill="#e0ceb2" rx="3"/>
+  <rect x="690" y="190" width="166" height="650" fill="#e8d8ba"/>
+  <!-- Battlement -->
+  <rect x="678" y="178" width="190" height="20" fill="#d4c8a0"/>
+  <rect x="683" y="164" width="24" height="18" fill="#d4c8a0" rx="2"/>
+  <rect x="716" y="164" width="24" height="18" fill="#d4c8a0" rx="2"/>
+  <rect x="749" y="164" width="24" height="18" fill="#d4c8a0" rx="2"/>
+  <rect x="782" y="164" width="24" height="18" fill="#d4c8a0" rx="2"/>
+  <rect x="815" y="164" width="24" height="18" fill="#d4c8a0" rx="2"/>
+  <rect x="844" y="164" width="24" height="18" fill="#d4c8a0" rx="2"/>
+  <!-- Dome -->
+  <ellipse cx="773" cy="190" rx="72" ry="50" fill="url(#domeGold)"/>
+  <ellipse cx="773" cy="146" rx="36" ry="50" fill="#d8cca8"/>
+  <ellipse cx="773" cy="102" rx="18" ry="24" fill="#ccbf9c"/>
+  <circle cx="773" cy="80" r="6" fill="#c9933a"/>
+  <line x1="773" y1="74" x2="773" y2="62" stroke="#c9933a" stroke-width="2.5"/>
+  <ellipse cx="773" cy="60" rx="9" ry="4" fill="#c9933a"/>
+  <!-- Jaali windows -->
+  <path d="M698,258 Q724,240 750,258 L750,318 Q724,332 698,318Z" fill="rgba(180,160,110,.25)" stroke="#c9933a" stroke-width=".9"/>
+  <line x1="703" y1="262" x2="745" y2="314" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <line x1="745" y1="262" x2="703" y2="314" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <path d="M758,258 Q784,240 810,258 L810,318 Q784,332 758,318Z" fill="rgba(180,160,110,.25)" stroke="#c9933a" stroke-width=".9"/>
+  <line x1="763" y1="262" x2="805" y2="314" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <line x1="805" y1="262" x2="763" y2="314" stroke="#c9933a" stroke-width=".5" opacity=".4"/>
+  <path d="M698,355 Q724,337 750,355 L750,415 Q724,429 698,415Z" fill="rgba(180,160,110,.22)" stroke="#c9933a" stroke-width=".8"/>
+  <line x1="703" y1="359" x2="745" y2="411" stroke="#c9933a" stroke-width=".5" opacity=".35"/>
+  <line x1="745" y1="359" x2="703" y2="411" stroke="#c9933a" stroke-width=".5" opacity=".35"/>
+  <path d="M758,355 Q784,337 810,355 L810,415 Q784,429 758,415Z" fill="rgba(180,160,110,.22)" stroke="#c9933a" stroke-width=".8"/>
+  <!-- Gold bands -->
+  <rect x="678" y="208" width="190" height="5" fill="#c9933a" opacity=".55"/>
+  <rect x="678" y="335" width="190" height="3" fill="#c9933a" opacity=".4"/>
+  <rect x="678" y="430" width="190" height="3" fill="#c9933a" opacity=".38"/>
+  <!-- Balcony with hanging lantern -->
+  <rect x="690" y="435" width="166" height="35" fill="#d8cc9e" opacity=".9"/>
+  <rect x="678" y="468" width="190" height="7" fill="#c9933a" opacity=".5"/>
+  <line x1="760" y1="208" x2="760" y2="238" stroke="#8a6828" stroke-width="1.5"/>
+  <ellipse cx="760" cy="250" rx="9" ry="13" fill="#c9933a" opacity=".9"/>
+  <path d="M751,238 Q760,234 769,238" fill="#e8c87a"/>
+  <path d="M751,263 Q760,270 769,263 L771,270 Q760,280 749,270Z" fill="#a07828"/>
+  <circle cx="760" cy="250" r="4" fill="#ffe870" filter="url(#glow)" opacity=".9"/>
+  <!-- Parrot on right tower (ref img1) -->
+  <g transform="translate(850,280)">
+    <ellipse cx="0" cy="0" rx="12" ry="18" fill="#3a9050"/>
+    <ellipse cx="0" cy="0" rx="8" ry="12" fill="#50b860"/>
+    <path d="M-12,-15 Q-30,-25 -38,-18" stroke="#f8c020" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M-12,-15 Q-32,-12 -40,-5" stroke="#3a88a0" stroke-width="5" stroke-linecap="round" fill="none"/>
+    <path d="M0,5 Q8,30 5,48" stroke="#3a9050" stroke-width="6" stroke-linecap="round" fill="none"/>
+    <circle cx="-5" cy="-14" r="8" fill="#3a9050"/>
+    <circle cx="-7" cy="-16" r="3" fill="#181808"/>
+    <path d="M-10,-10 Q-15,-8 -12,-6" fill="#e8c020"/>
+  </g>
+</g>
+
+<!-- ── BIG COLUMNS flanking arch ── -->
+<!-- Left column -->
+<g>
+  <rect x="0" y="0" width="100" height="1000" fill="url(#colGrad)" rx="2"/>
+  <rect x="12" y="0" width="76" height="1000" fill="#e0d2b2"/>
+  <line x1="26" y1="0" x2="26" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <line x1="42" y1="0" x2="42" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <line x1="58" y1="0" x2="58" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <line x1="74" y1="0" x2="74" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <rect x="0" y="0" width="100" height="50" fill="#d0c4a4"/>
+  <rect x="0" y="46" width="100" height="10" fill="#c9933a" opacity=".6"/>
+  <rect x="0" y="950" width="100" height="50" fill="#d0c4a4"/>
+  <rect x="0" y="944" width="100" height="10" fill="#c9933a" opacity=".5"/>
+  <ellipse cx="50" cy="25" rx="32" ry="11" fill="#c8bc9c" opacity=".65"/>
+</g>
+<!-- Right column -->
+<g>
+  <rect x="800" y="0" width="100" height="1000" fill="url(#colGrad)" rx="2"/>
+  <rect x="812" y="0" width="76" height="1000" fill="#e0d2b2"/>
+  <line x1="814" y1="0" x2="814" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <line x1="830" y1="0" x2="830" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <line x1="846" y1="0" x2="846" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <line x1="862" y1="0" x2="862" y2="1000" stroke="#c8b898" stroke-width="1.5" opacity=".4"/>
+  <rect x="800" y="0" width="100" height="50" fill="#d0c4a4"/>
+  <rect x="800" y="46" width="100" height="10" fill="#c9933a" opacity=".6"/>
+  <rect x="800" y="950" width="100" height="50" fill="#d0c4a4"/>
+  <rect x="800" y="944" width="100" height="10" fill="#c9933a" opacity=".5"/>
+  <ellipse cx="850" cy="25" rx="32" ry="11" fill="#c8bc9c" opacity=".65"/>
+</g>
+
+<!-- ── MUGHAL ARCH ── -->
+<path d="M100,1000 L100,340 Q100,78 450,78 Q800,78 800,340 L800,1000Z" fill="none" stroke="#c9933a" stroke-width="4" opacity=".55"/>
+<path d="M100,340 Q100,78 450,78 Q800,78 800,340" fill="none" stroke="#e8c87a" stroke-width="2" stroke-dasharray="10,8" opacity=".6"/>
+<path d="M145,1000 L145,355 Q145,128 450,128 Q755,128 755,355 L755,1000" fill="none" stroke="#c9933a" stroke-width="1.2" opacity=".28"/>
+<!-- Arch decorative border dots -->
+<path d="M100,340 Q100,78 450,78 Q800,78 800,340" fill="none" stroke="#e8c87a" stroke-width="6" opacity=".08"/>
+
+<!-- ── HANGING LANTERNS (7, ref img1) ── -->
+<!-- L1 -->
+<g class="ls" style="--ls:3.1s">
+  <line x1="190" y1="0" x2="190" y2="155" stroke="#8a6828" stroke-width="1.5"/>
+  <path d="M174,175 Q174,155 190,153 Q206,155 206,175 L203,206 Q190,216 177,206Z" fill="#d04878" opacity=".9"/>
+  <ellipse cx="190" cy="157" rx="12" ry="10" fill="#f08098"/>
+  <path d="M177,206 Q190,218 203,206 L206,215 Q190,228 174,215Z" fill="#a03058"/>
+  <path d="M180,160 L182,203 M187,158 L187,207 M193,158 L193,207 M200,160 L198,203" stroke="#f8a0b8" stroke-width=".9" opacity=".45"/>
+  <circle cx="190" cy="182" r="4.5" fill="#ffe888" filter="url(#glow)"/>
+</g>
+<!-- L2 -->
+<g class="ls" style="--ls:4.3s">
+  <line x1="295" y1="0" x2="295" y2="105" stroke="#8a6828" stroke-width="1.4"/>
+  <ellipse cx="295" cy="125" rx="13" ry="20" fill="#3a8888" opacity=".88"/>
+  <ellipse cx="295" cy="108" rx="9.5" ry="8" fill="#60b0b0"/>
+  <ellipse cx="295" cy="143" rx="9.5" ry="7" fill="#286868" opacity=".75"/>
+  <path d="M283,110 L285,141 M291,108 L291,144 M299,108 L299,144 M307,110 L305,141" stroke="#80d0d0" stroke-width=".9" opacity=".45"/>
+  <circle cx="295" cy="125" r="3.5" fill="#ffe898" filter="url(#glow)"/>
+</g>
+<!-- L3 golden ornate (centre-left) -->
+<g class="ls" style="--ls:3.7s">
+  <line x1="385" y1="0" x2="385" y2="128" stroke="#9a7830" stroke-width="2"/>
+  <path d="M368,150 Q368,128 385,126 Q402,128 402,150 L399,182 Q385,193 371,182Z" fill="#c9933a" opacity=".93"/>
+  <ellipse cx="385" cy="130" rx="14" ry="10.5" fill="#e8c87a"/>
+  <path d="M371,182 Q385,196 399,182 L403,191 Q385,206 367,191Z" fill="#a07828"/>
+  <path d="M374,134 L376,179 M381,132 L381,183 M389,132 L389,183 M396,134 L394,179" stroke="#f0d878" stroke-width=".9" opacity=".45"/>
+  <circle cx="385" cy="158" r="6" fill="#fff878" filter="url(#glow)" opacity=".92"/>
+</g>
+<!-- L4 centre big gold -->
+<g class="ls" style="--ls:3.4s">
+  <line x1="450" y1="0" x2="450" y2="88" stroke="#a08030" stroke-width="2.5"/>
+  <path d="M430,112 Q430,88 450,86 Q470,88 470,112 L467,148 Q450,162 433,148Z" fill="#d4901a" opacity=".94"/>
+  <ellipse cx="450" cy="90" rx="17" ry="13" fill="#e8b040"/>
+  <path d="M433,148 Q450,165 467,148 L472,158 Q450,175 428,158Z" fill="#b07010"/>
+  <circle cx="450" cy="122" r="7.5" fill="#ffe070" filter="url(#glow)" opacity=".96"/>
+</g>
+<!-- L5 purple -->
+<g class="ls" style="--ls:4s">
+  <line x1="515" y1="0" x2="515" y2="118" stroke="#9a7830" stroke-width="1.8"/>
+  <path d="M498,140 Q498,118 515,116 Q532,118 532,140 L529,170 Q515,181 501,170Z" fill="#8040a0" opacity=".88"/>
+  <ellipse cx="515" cy="120" rx="13" ry="10" fill="#b068c8"/>
+  <path d="M501,170 Q515,183 529,170 L532,178 Q515,193 499,178Z" fill="#602880"/>
+  <circle cx="515" cy="150" r="4.5" fill="#fff0a0" filter="url(#glow)"/>
+</g>
+<!-- L6 teal -->
+<g class="ls" style="--ls:3.9s">
+  <line x1="615" y1="0" x2="615" y2="98" stroke="#8a6828" stroke-width="1.5"/>
+  <ellipse cx="615" cy="118" rx="13" ry="20" fill="#c86018" opacity=".88"/>
+  <ellipse cx="615" cy="101" rx="9.5" ry="8.5" fill="#e88038"/>
+  <ellipse cx="615" cy="135" rx="9.5" ry="7" fill="#a04808" opacity=".72"/>
+  <circle cx="615" cy="118" r="4" fill="#ffe880" filter="url(#glow)"/>
+</g>
+<!-- L7 -->
+<g class="ls" style="--ls:3.2s">
+  <line x1="713" y1="0" x2="713" y2="145" stroke="#8a6828" stroke-width="1.5"/>
+  <path d="M697,167 Q697,145 713,143 Q729,145 729,167 L726,197 Q713,208 700,197Z" fill="#d04878" opacity=".88"/>
+  <ellipse cx="713" cy="147" rx="12" ry="10" fill="#f08098"/>
+  <path d="M700,197 Q713,210 726,197 L729,205 Q713,218 698,205Z" fill="#a03058"/>
+  <circle cx="713" cy="180" r="3.5" fill="#ffe888" filter="url(#glow)"/>
+</g>
+
+<!-- ── FLORAL VINES on arch (ref img1) ── -->
+<!-- Left vine -->
+<g opacity=".88">
+  <path d="M100,78 Q155,48 210,100 Q242,132 200,175 Q172,206 195,248" stroke="#4a7840" stroke-width="3.2" fill="none"/>
+  <path d="M135,56 Q188,28 228,78 Q248,100 218,132" stroke="#3a6830" stroke-width="2.2" fill="none"/>
+  <path d="M100,185 Q138,158 158,196 Q172,226 148,258" stroke="#4a7840" stroke-width="2" fill="none"/>
+  <!-- Leaves -->
+  <ellipse cx="172" cy="90" rx="15" ry="5.5" fill="#5a9050" transform="rotate(-38 172 90)"/>
+  <ellipse cx="200" cy="114" rx="13" ry="5" fill="#4a8040" transform="rotate(24 200 114)"/>
+  <ellipse cx="155" cy="73" rx="11" ry="4.5" fill="#6aaa60" transform="rotate(-52 155 73)"/>
+  <ellipse cx="185" cy="162" rx="13" ry="5" fill="#5a9050" transform="rotate(16 185 162)"/>
+  <ellipse cx="150" cy="210" rx="11" ry="4.5" fill="#4a8040" transform="rotate(-22 150 210)"/>
+  <ellipse cx="192" cy="240" rx="12" ry="5" fill="#6aaa60" transform="rotate(28 192 240)"/>
+  <!-- Pink blossoms (ref img1 pink flowers on vine) -->
+  <g class="rs" style="transform-origin:178px 84px">
+    <circle cx="178" cy="84" r="10" fill="#f0a0b8" opacity=".93"/>
+    <circle cx="178" cy="84" r="6.5" fill="#e87898"/><circle cx="178" cy="84" r="3" fill="#ffc0d0"/>
+  </g>
+  <circle cx="205" cy="122" r="9" fill="#f5a8c0" opacity=".9"/><circle cx="205" cy="122" r="6" fill="#e87898"/>
+  <circle cx="155" cy="67" r="8" fill="#ff90a8" opacity=".92"/><circle cx="155" cy="67" r="5" fill="#ffa8c0"/>
+  <circle cx="170" cy="180" r="7.5" fill="#f0a0b8" opacity=".87"/>
+  <circle cx="148" cy="256" r="7" fill="#f5a8c0" opacity=".82"/>
+  <!-- small yellow blossoms (ref img1 has yellow-orange flowers top left) -->
+  <circle cx="145" cy="58" r="5" fill="#f8c830" opacity=".8"/><circle cx="138" cy="66" r="4" fill="#f0b820" opacity=".75"/>
+  <circle cx="155" cy="50" r="4" fill="#f8d040" opacity=".75"/>
+  <!-- banana leaves -->
+  <ellipse cx="152" cy="238" rx="58" ry="17" fill="#5a9838" opacity=".75" transform="rotate(-26 152 238)"/>
+  <ellipse cx="182" cy="266" rx="52" ry="15" fill="#4a8830" opacity=".7" transform="rotate(14 182 266)"/>
+</g>
+<!-- Right vine -->
+<g opacity=".88">
+  <path d="M800,78 Q745,48 690,100 Q658,132 700,175 Q728,206 705,248" stroke="#4a7840" stroke-width="3.2" fill="none"/>
+  <path d="M765,56 Q712,28 672,78 Q652,100 682,132" stroke="#3a6830" stroke-width="2.2" fill="none"/>
+  <path d="M800,185 Q762,158 742,196 Q728,226 752,258" stroke="#4a7840" stroke-width="2" fill="none"/>
+  <ellipse cx="728" cy="90" rx="15" ry="5.5" fill="#5a9050" transform="rotate(38 728 90)"/>
+  <ellipse cx="700" cy="115" rx="13" ry="5" fill="#4a8040" transform="rotate(-24 700 115)"/>
+  <ellipse cx="745" cy="73" rx="11" ry="4.5" fill="#6aaa60" transform="rotate(52 745 73)"/>
+  <ellipse cx="715" cy="163" rx="13" ry="5" fill="#5a9050" transform="rotate(-16 715 163)"/>
+  <ellipse cx="750" cy="212" rx="11" ry="4.5" fill="#4a8040" transform="rotate(22 750 212)"/>
+  <g class="rs" style="transform-origin:722px 84px">
+    <circle cx="722" cy="84" r="10" fill="#f0a0b8" opacity=".93"/>
+    <circle cx="722" cy="84" r="6.5" fill="#e87898"/><circle cx="722" cy="84" r="3" fill="#ffc0d0"/>
+  </g>
+  <circle cx="695" cy="123" r="9" fill="#f5a8c0" opacity=".9"/><circle cx="695" cy="123" r="6" fill="#e87898"/>
+  <circle cx="745" cy="67" r="8" fill="#ff90a8" opacity=".92"/><circle cx="745" cy="67" r="5" fill="#ffa8c0"/>
+  <circle cx="730" cy="181" r="7.5" fill="#f0a0b8" opacity=".87"/>
+  <circle cx="752" cy="258" r="7" fill="#f5a8c0" opacity=".82"/>
+  <circle cx="757" cy="56" r="5" fill="#f8c830" opacity=".8"/><circle cx="764" cy="64" r="4" fill="#f0b820" opacity=".75"/>
+  <ellipse cx="748" cy="240" rx="58" ry="17" fill="#5a9838" opacity=".75" transform="rotate(26 748 240)"/>
+  <ellipse cx="718" cy="268" rx="52" ry="15" fill="#4a8830" opacity=".7" transform="rotate(-14 718 268)"/>
+</g>
+
+<!-- ── PALM TREES ── -->
+<g opacity=".82">
+  <!-- Palm left-centre -->
+  <path d="M278,1000 Q284,780 288,590" stroke="#6a4820" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <path d="M288,590 Q260,516 218,494" stroke="#5a3810" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+  <path d="M288,590 Q308,508 350,484" stroke="#5a3810" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+  <path d="M288,590 Q274,500 268,462" stroke="#5a3810" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+  <path d="M288,590 Q296,505 300,466" stroke="#5a3810" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="208" cy="488" rx="62" ry="21" fill="#5aaa40" transform="rotate(-22 208 488)"/>
+  <ellipse cx="358" cy="478" rx="62" ry="21" fill="#4a9a30" transform="rotate(18 358 478)"/>
+  <ellipse cx="260" cy="456" rx="56" ry="19" fill="#6abb50" transform="rotate(-9 260 456)"/>
+  <ellipse cx="296" cy="448" rx="50" ry="18" fill="#5aaa40" transform="rotate(6 296 448)"/>
+  <!-- Palm right-centre -->
+  <path d="M622,1000 Q616,790 612,602" stroke="#6a4820" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <path d="M612,602 Q640,524 682,502" stroke="#5a3810" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+  <path d="M612,602 Q592,516 550,494" stroke="#5a3810" stroke-width="7.5" fill="none" stroke-linecap="round"/>
+  <path d="M612,602 Q626,515 632,476" stroke="#5a3810" stroke-width="6.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="692" cy="496" rx="62" ry="21" fill="#5aaa40" transform="rotate(22 692 496)"/>
+  <ellipse cx="542" cy="488" rx="62" ry="21" fill="#4a9a30" transform="rotate(-18 542 488)"/>
+  <ellipse cx="640" cy="470" rx="56" ry="19" fill="#6abb50" transform="rotate(9 640 470)"/>
+</g>
+
+<!-- ── BANANA LEAVES ── -->
+<g opacity=".82">
+  <path d="M365,1000 Q370,840 368,720" stroke="#5a4018" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <ellipse cx="334" cy="720" rx="72" ry="23" fill="#6abb48" transform="rotate(-30 334 720)"/>
+  <ellipse cx="400" cy="738" rx="67" ry="21" fill="#5aaa38" transform="rotate(24 400 738)"/>
+  <ellipse cx="352" cy="692" rx="62" ry="20" fill="#78cc58" transform="rotate(-7 352 692)"/>
+  <ellipse cx="374" cy="676" rx="56" ry="19" fill="#6abb48" transform="rotate(11 374 676)"/>
+
+  <path d="M535,1000 Q530,852 532,732" stroke="#5a4018" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <ellipse cx="566" cy="732" rx="72" ry="23" fill="#6abb48" transform="rotate(30 566 732)"/>
+  <ellipse cx="500" cy="750" rx="67" ry="21" fill="#5aaa38" transform="rotate(-24 500 750)"/>
+  <ellipse cx="548" cy="704" rx="62" ry="20" fill="#78cc58" transform="rotate(7 548 704)"/>
+</g>
+
+<!-- ── TWO BIG PEACOCKS (ref img1 centre) ── -->
+<!-- Left peacock facing right -->
+<g transform="translate(305,740)" class="pf" opacity=".95">
+  <g opacity=".82">
+    <path d="M0,0 Q-95,-138 -115,-202" stroke="#286898" stroke-width="4" fill="none"/>
+    <path d="M0,0 Q-74,-148 -84,-220" stroke="#3a7898" stroke-width="3.5" fill="none"/>
+    <path d="M0,0 Q-48,-154 -50,-232" stroke="#286898" stroke-width="3" fill="none"/>
+    <path d="M0,0 Q-20,-158 -16,-238" stroke="#38828e" stroke-width="2.8" fill="none"/>
+    <path d="M0,0 Q10,-158 16,-238" stroke="#287888" stroke-width="2.8" fill="none"/>
+    <path d="M0,0 Q38,-154 48,-232" stroke="#3a8282" stroke-width="3" fill="none"/>
+    <path d="M0,0 Q72,-146 84,-218" stroke="#286898" stroke-width="3.5" fill="none"/>
+    <path d="M0,0 Q94,-134 114,-198" stroke="#3a7898" stroke-width="4" fill="none"/>
+    <!-- Eye spots -->
+    <ellipse cx="-111" cy="-200" rx="11" ry="15" fill="#1a4070" opacity=".75"/>
+    <ellipse cx="-111" cy="-200" rx="7" ry="10" fill="#58a838" opacity=".88"/>
+    <ellipse cx="-111" cy="-200" rx="3.5" ry="5" fill="#1a2848"/>
+    <ellipse cx="-80" cy="-218" rx="10" ry="13" fill="#1a4070" opacity=".72"/>
+    <ellipse cx="-80" cy="-218" rx="6" ry="8.5" fill="#58a838" opacity=".84"/>
+    <ellipse cx="-47" cy="-230" rx="9" ry="12" fill="#1a4070" opacity=".7"/>
+    <ellipse cx="-47" cy="-230" rx="5.5" ry="7.5" fill="#58a838" opacity=".82"/>
+    <ellipse cx="-14" cy="-236" rx="8" ry="11" fill="#1a4070" opacity=".68"/>
+    <ellipse cx="-14" cy="-236" rx="5" ry="7" fill="#58a838" opacity=".8"/>
+    <ellipse cx="16" cy="-236" rx="8" ry="11" fill="#1a4070" opacity=".68"/>
+    <ellipse cx="16" cy="-236" rx="5" ry="7" fill="#58a838" opacity=".8"/>
+    <ellipse cx="46" cy="-230" rx="9" ry="12" fill="#1a4070" opacity=".7"/>
+    <ellipse cx="46" cy="-230" rx="5.5" ry="7.5" fill="#58a838" opacity=".82"/>
+    <ellipse cx="82" cy="-216" rx="10" ry="13" fill="#1a4070" opacity=".72"/>
+    <ellipse cx="82" cy="-216" rx="6" ry="8.5" fill="#58a838" opacity=".84"/>
+    <ellipse cx="111" cy="-196" rx="11" ry="15" fill="#1a4070" opacity=".75"/>
+    <ellipse cx="111" cy="-196" rx="7" ry="10" fill="#58a838" opacity=".88"/>
+    <ellipse cx="111" cy="-196" rx="3.5" ry="5" fill="#1a2848"/>
+  </g>
+  <!-- Body -->
+  <ellipse cx="0" cy="-14" rx="26" ry="40" fill="#1a6070"/>
+  <ellipse cx="0" cy="-14" rx="18" ry="28" fill="#289098"/>
+  <!-- Jewel pattern chest -->
+  <path d="M-17,-26 Q0,-42 17,-26 Q20,-8 0,0 Q-20,-8 -17,-26Z" fill="#38b888" opacity=".76"/>
+  <path d="M-17,-26 Q0,-42 17,-26 Q20,-8 0,0 Q-20,-8 -17,-26Z" fill="none" stroke="#e8c87a" stroke-width=".8"/>
+  <!-- Neck -->
+  <path d="M0,-54 Q-7,-76 -4,-100" stroke="#1a6070" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M0,-54 Q-5,-76 -2,-100" stroke="#38909a" stroke-width="9" fill="none"/>
+  <!-- Head -->
+  <circle cx="-3" cy="-104" r="14" fill="#1a6070"/>
+  <circle cx="-3" cy="-104" r="9" fill="#28909a"/>
+  <!-- Crest -->
+  <path d="M-3,-118 Q-12,-136 -10,-146" stroke="#28909a" stroke-width="2.8"/>
+  <path d="M-3,-118 Q-3,-138 -1,-148" stroke="#28909a" stroke-width="2.8"/>
+  <path d="M-3,-118 Q7,-135 8,-144" stroke="#28909a" stroke-width="2.2"/>
+  <circle cx="-10" cy="-147" r="4" fill="#58c8a8"/>
+  <circle cx="-1" cy="-149" r="3.5" fill="#58c8a8"/>
+  <circle cx="9" cy="-145" r="3" fill="#58c8a8"/>
+  <!-- Eye, beak -->
+  <circle cx="8" cy="-105" r="4" fill="#181808"/>
+  <circle cx="9.5" cy="-106.5" r="1.5" fill="#fff"/>
+  <path d="M14,-100 Q21,-98 17,-95" fill="#c09020" stroke="#a07810" stroke-width=".6"/>
+  <!-- Legs -->
+  <line x1="-9" y1="26" x2="-14" y2="64" stroke="#8a6820" stroke-width="4"/>
+  <line x1="9" y1="26" x2="12" y2="64" stroke="#8a6820" stroke-width="4"/>
+  <path d="M-14,64 L-24,74 M-14,64 L-12,76 M-14,64 L-3,70" stroke="#8a6820" stroke-width="2.5"/>
+  <path d="M12,64 L2,74 M12,64 L14,76 M12,64 L22,70" stroke="#8a6820" stroke-width="2.5"/>
+</g>
+
+<!-- Right peacock (mirrored) -->
+<g transform="translate(595,752) scale(-1,1)" class="pf" style="animation-delay:.9s" opacity=".95">
+  <g opacity=".82">
+    <path d="M0,0 Q-95,-138 -115,-202" stroke="#286898" stroke-width="4" fill="none"/>
+    <path d="M0,0 Q-74,-148 -84,-220" stroke="#3a7898" stroke-width="3.5" fill="none"/>
+    <path d="M0,0 Q-48,-154 -50,-232" stroke="#286898" stroke-width="3" fill="none"/>
+    <path d="M0,0 Q-20,-158 -16,-238" stroke="#38828e" stroke-width="2.8" fill="none"/>
+    <path d="M0,0 Q10,-158 16,-238" stroke="#287888" stroke-width="2.8" fill="none"/>
+    <path d="M0,0 Q38,-154 48,-232" stroke="#3a8282" stroke-width="3" fill="none"/>
+    <path d="M0,0 Q72,-146 84,-218" stroke="#286898" stroke-width="3.5" fill="none"/>
+    <path d="M0,0 Q94,-134 114,-198" stroke="#3a7898" stroke-width="4" fill="none"/>
+    <ellipse cx="-111" cy="-200" rx="11" ry="15" fill="#1a4070" opacity=".75"/>
+    <ellipse cx="-111" cy="-200" rx="7" ry="10" fill="#58a838" opacity=".88"/>
+    <ellipse cx="-111" cy="-200" rx="3.5" ry="5" fill="#1a2848"/>
+    <ellipse cx="-80" cy="-218" rx="10" ry="13" fill="#1a4070" opacity=".72"/>
+    <ellipse cx="-80" cy="-218" rx="6" ry="8.5" fill="#58a838" opacity=".84"/>
+    <ellipse cx="-47" cy="-230" rx="9" ry="12" fill="#1a4070" opacity=".7"/>
+    <ellipse cx="-47" cy="-230" rx="5.5" ry="7.5" fill="#58a838" opacity=".82"/>
+    <ellipse cx="-14" cy="-236" rx="8" ry="11" fill="#1a4070" opacity=".68"/>
+    <ellipse cx="-14" cy="-236" rx="5" ry="7" fill="#58a838" opacity=".8"/>
+    <ellipse cx="16" cy="-236" rx="8" ry="11" fill="#1a4070" opacity=".68"/>
+    <ellipse cx="16" cy="-236" rx="5" ry="7" fill="#58a838" opacity=".8"/>
+    <ellipse cx="46" cy="-230" rx="9" ry="12" fill="#1a4070" opacity=".7"/>
+    <ellipse cx="46" cy="-230" rx="5.5" ry="7.5" fill="#58a838" opacity=".82"/>
+    <ellipse cx="82" cy="-216" rx="10" ry="13" fill="#1a4070" opacity=".72"/>
+    <ellipse cx="82" cy="-216" rx="6" ry="8.5" fill="#58a838" opacity=".84"/>
+    <ellipse cx="111" cy="-196" rx="11" ry="15" fill="#1a4070" opacity=".75"/>
+    <ellipse cx="111" cy="-196" rx="7" ry="10" fill="#58a838" opacity=".88"/>
+    <ellipse cx="111" cy="-196" rx="3.5" ry="5" fill="#1a2848"/>
+  </g>
+  <ellipse cx="0" cy="-14" rx="26" ry="40" fill="#1a6070"/>
+  <ellipse cx="0" cy="-14" rx="18" ry="28" fill="#289098"/>
+  <path d="M-17,-26 Q0,-42 17,-26 Q20,-8 0,0 Q-20,-8 -17,-26Z" fill="#38b888" opacity=".76"/>
+  <path d="M0,-54 Q-7,-76 -4,-100" stroke="#1a6070" stroke-width="14" stroke-linecap="round" fill="none"/>
+  <path d="M0,-54 Q-5,-76 -2,-100" stroke="#38909a" stroke-width="9" fill="none"/>
+  <circle cx="-3" cy="-104" r="14" fill="#1a6070"/>
+  <circle cx="-3" cy="-104" r="9" fill="#28909a"/>
+  <path d="M-3,-118 Q-12,-136 -10,-146" stroke="#28909a" stroke-width="2.8"/>
+  <path d="M-3,-118 Q-3,-138 -1,-148" stroke="#28909a" stroke-width="2.8"/>
+  <circle cx="-10" cy="-147" r="4" fill="#58c8a8"/>
+  <circle cx="-1" cy="-149" r="3.5" fill="#58c8a8"/>
+  <circle cx="8" cy="-105" r="4" fill="#181808"/>
+  <circle cx="9.5" cy="-106.5" r="1.5" fill="#fff"/>
+  <path d="M14,-100 Q21,-98 17,-95" fill="#c09020"/>
+  <line x1="-9" y1="26" x2="-14" y2="64" stroke="#8a6820" stroke-width="4"/>
+  <line x1="9" y1="26" x2="12" y2="64" stroke="#8a6820" stroke-width="4"/>
+  <path d="M-14,64 L-24,74 M-14,64 L-12,76 M-14,64 L-3,70" stroke="#8a6820" stroke-width="2.5"/>
+  <path d="M12,64 L2,74 M12,64 L14,76 M12,64 L22,70" stroke="#8a6820" stroke-width="2.5"/>
+</g>
+
+<!-- Golden fountain between peacocks (ref img1) -->
+<g transform="translate(450,810)" opacity=".82">
+  <ellipse cx="0" cy="34" rx="44" ry="9" fill="#c9933a" opacity=".5"/>
+  <path d="M-34,34 Q0,-22 34,34" fill="#e8c87a" opacity=".55"/>
+  <circle cx="0" cy="-2" r="9" fill="#e8c87a" opacity=".8"/>
+  <path d="M0,-2 Q-16,-44 -5,-66" stroke="#c9933a" stroke-width="2.5" fill="none"/>
+  <path d="M0,-2 Q16,-44 5,-66" stroke="#c9933a" stroke-width="2.5" fill="none"/>
+  <ellipse cx="0" cy="-68" rx="13" ry="4.5" fill="#e8c87a" opacity=".7"/>
+  <!-- Gems on base -->
+  <circle cx="-22" cy="28" r="5" fill="#e84040" opacity=".82"/>
+  <circle cx="-11" cy="32" r="5" fill="#40a040" opacity=".82"/>
+  <circle cx="0" cy="33" r="5" fill="#4040e0" opacity=".82"/>
+  <circle cx="11" cy="32" r="5" fill="#e84040" opacity=".82"/>
+  <circle cx="22" cy="28" r="5" fill="#40a040" opacity=".82"/>
+</g>
+
+<!-- Mosaic tile floor bottom (ref img1) -->
+<g opacity=".45">
+  <rect x="100" y="940" width="700" height="60" fill="#c8d8d0"/>
+  <path d="M100,940 Q300,926 450,940 Q600,954 700,940" fill="none" stroke="#a0c0b8" stroke-width="1.2"/>
+  <circle cx="220" cy="952" r="12" fill="none" stroke="#88a8a0" stroke-width="1.4"/>
+  <circle cx="350" cy="958" r="10" fill="none" stroke="#88a8a0" stroke-width="1.4"/>
+  <circle cx="450" cy="952" r="14" fill="none" stroke="#88a8a0" stroke-width="1.4"/>
+  <circle cx="560" cy="958" r="10" fill="none" stroke="#88a8a0" stroke-width="1.4"/>
+  <circle cx="680" cy="952" r="12" fill="none" stroke="#88a8a0" stroke-width="1.4"/>
+  <!-- rangoli inner -->
+  <g transform="translate(450,952)">
+    <ellipse rx="7" ry="4" fill="none" stroke="#80a898" stroke-width=".8" transform="rotate(0)"/>
+    <ellipse rx="7" ry="4" fill="none" stroke="#80a898" stroke-width=".8" transform="rotate(60)"/>
+    <ellipse rx="7" ry="4" fill="none" stroke="#80a898" stroke-width=".8" transform="rotate(120)"/>
+    <circle r="2.5" fill="#88a8a0"/>
+  </g>
+</g>
+
+<!-- Lantern glow halos on floor -->
+<circle cx="168" cy="966" r="8" fill="#c97020" opacity=".8"/>
+<ellipse cx="168" cy="960" rx="6" ry="9" fill="#e89030"/>
+<circle cx="168" cy="960" r="3.5" fill="#ffe070" filter="url(#glow)"/>
+<circle cx="732" cy="966" r="8" fill="#3a8888" opacity=".8"/>
+<ellipse cx="732" cy="960" rx="6" ry="9" fill="#60b0b0"/>
+<circle cx="732" cy="960" r="3.5" fill="#ffe070" filter="url(#glow)"/>
+</svg>
+
+  <div class="hero-text">
+    <div class="ht-om">🕉 &nbsp; Shree Ganeshaya Namah &nbsp; 🕉</div>
+    <span class="ht-icon">🪔</span>
+    <div class="ht-names">Yash &amp; Nupur</div>
+    <span class="ht-weds">Mangal Parinay</span>
+    <p class="ht-tag">Together with their families, they joyfully invite you<br>to celebrate their sacred union</p>
+  </div>
+  <div class="scroll-cue">✦ &nbsp; Scroll to explore &nbsp; ✦</div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     SCENE 2 — PINK PALACE / ELEPHANT (Reference Image 2)
+═══════════════════════════════════════════════════ -->
+<section class="scene2">
+<svg class="s2-bg" viewBox="0 0 900 700" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+<defs>
+  <radialGradient id="sky2" cx="50%" cy="0%" r="100%">
+    <stop offset="0%" stop-color="#c8e8f2"/><stop offset="100%" stop-color="#daeef8"/>
+  </radialGradient>
+  <filter id="mist2"><feGaussianBlur stdDeviation="4.5"/></filter>
+</defs>
+<rect width="900" height="700" fill="url(#sky2)"/>
+
+<!-- Misty blue palace background (ref img2 left) -->
+<g filter="url(#mist2)" opacity=".38">
+  <rect x="120" y="90" width="260" height="450" fill="#90b8d0" rx="3"/>
+  <ellipse cx="250" cy="90" rx="100" ry="70" fill="#88b0c8"/>
+  <ellipse cx="250" cy="28" rx="50" ry="68" fill="#80a8c0"/>
+  <ellipse cx="250" cy="-30" rx="25" ry="33" fill="#789ab8"/>
+  <!-- windows grid -->
+  <rect x="140" y="180" width="38" height="60" fill="#78a0b8" rx="2" opacity=".7"/>
+  <rect x="192" y="180" width="38" height="60" fill="#78a0b8" rx="2" opacity=".7"/>
+  <rect x="244" y="180" width="38" height="60" fill="#78a0b8" rx="2" opacity=".7"/>
+  <rect x="296" y="180" width="38" height="60" fill="#78a0b8" rx="2" opacity=".7"/>
+  <rect x="140" y="260" width="38" height="60" fill="#78a0b8" rx="2" opacity=".65"/>
+  <rect x="192" y="260" width="38" height="60" fill="#78a0b8" rx="2" opacity=".65"/>
+  <rect x="244" y="260" width="38" height="60" fill="#78a0b8" rx="2" opacity=".65"/>
+  <rect x="296" y="260" width="38" height="60" fill="#78a0b8" rx="2" opacity=".65"/>
+</g>
+
+<!-- PINK PALACE right (ref img2) -->
+<g opacity=".82">
+  <rect x="560" y="60" width="340" height="560" fill="#f0b0bc" rx="3"/>
+  <rect x="574" y="60" width="312" height="560" fill="#f4b8c4"/>
+  <!-- Teal-blue dome (ref img2) -->
+  <ellipse cx="730" cy="60" rx="110" ry="76" fill="#88c0c8"/>
+  <ellipse cx="730" cy="-8" rx="55" ry="76" fill="#80b8c0"/>
+  <ellipse cx="730" cy="-72" rx="28" ry="36" fill="#78b0b8"/>
+  <circle cx="730" cy="-106" r="8" fill="#c9933a"/>
+  <line x1="730" y1="-114" x2="730" y2="-128" stroke="#c9933a" stroke-width="2.8"/>
+  <ellipse cx="730" cy="-130" rx="10" ry="5" fill="#c9933a"/>
+  <!-- smaller side turret dome -->
+  <ellipse cx="590" cy="120" rx="40" ry="28" fill="#a8c8d0"/>
+  <ellipse cx="590" cy="96" rx="20" ry="28" fill="#98c0c8"/>
+  <circle cx="590" cy="70" r="5" fill="#c9933a"/>
+  <!-- Blue tile panels -->
+  <rect x="582" y="175" width="65" height="100" fill="#7ab8c0" rx="2" opacity=".85"/>
+  <rect x="662" y="175" width="65" height="100" fill="#7ab8c0" rx="2" opacity=".85"/>
+  <rect x="742" y="175" width="65" height="100" fill="#7ab8c0" rx="2" opacity=".85"/>
+  <rect x="582" y="292" width="65" height="100" fill="#7ab8c0" rx="2" opacity=".78"/>
+  <rect x="742" y="292" width="65" height="100" fill="#7ab8c0" rx="2" opacity=".78"/>
+  <!-- Arched windows on pink palace -->
+  <path d="M582,175 Q614,155 646,175 L646,248 Q614,262 582,248Z" fill="rgba(100,168,178,.55)" stroke="#c9933a" stroke-width=".8"/>
+  <path d="M654,175 Q686,155 718,175 L718,248 Q686,262 654,248Z" fill="rgba(100,168,178,.55)" stroke="#c9933a" stroke-width=".8"/>
+  <path d="M726,175 Q758,155 790,175 L790,248 Q758,262 726,248Z" fill="rgba(100,168,178,.55)" stroke="#c9933a" stroke-width=".8"/>
+  <path d="M582,295 Q614,275 646,295 L646,368 Q614,382 582,368Z" fill="rgba(100,168,178,.5)" stroke="#c9933a" stroke-width=".8"/>
+  <path d="M726,295 Q758,275 790,295 L790,368 Q758,382 726,368Z" fill="rgba(100,168,178,.5)" stroke="#c9933a" stroke-width=".8"/>
+  <!-- Gold trim -->
+  <rect x="560" y="78" width="340" height="6" fill="#c9933a" opacity=".58"/>
+  <rect x="560" y="168" width="340" height="4" fill="#c9933a" opacity=".42"/>
+  <rect x="560" y="288" width="340" height="4" fill="#c9933a" opacity=".4"/>
+  <rect x="560" y="405" width="340" height="4" fill="#c9933a" opacity=".38"/>
+  <!-- Balcony -->
+  <rect x="574" y="408" width="312" height="48" fill="#e8a8b4"/>
+  <rect x="560" y="454" width="340" height="8" fill="#c9933a" opacity=".52"/>
+</g>
+
+<!-- Lush GARDEN / foliage (ref img2) -->
+<ellipse cx="100" cy="580" rx="130" ry="85" fill="#4a8a30" opacity=".72"/>
+<ellipse cx="220" cy="592" rx="110" ry="78" fill="#5a9a38" opacity=".68"/>
+<ellipse cx="360" cy="600" rx="100" ry="72" fill="#4a8a30" opacity=".65"/>
+<ellipse cx="490" cy="595" rx="90" ry="68" fill="#5a9a38" opacity=".62"/>
+<ellipse cx="620" cy="600" rx="100" ry="72" fill="#4a8a30" opacity=".65"/>
+<ellipse cx="760" cy="592" rx="110" ry="78" fill="#5a9a38" opacity=".68"/>
+<!-- Flowers in garden -->
+<circle cx="140" cy="552" r="9" fill="#f090a8" opacity=".82"/>
+<circle cx="170" cy="544" r="8" fill="#f8b0c0" opacity=".82"/>
+<circle cx="105" cy="558" r="7" fill="#f090a8" opacity=".75"/>
+<circle cx="370" cy="546" r="9" fill="#f090a8" opacity=".82"/>
+<circle cx="400" cy="554" r="7" fill="#f8b0c0" opacity=".78"/>
+<circle cx="510" cy="548" r="8" fill="#f090a8" opacity=".75"/>
+<circle cx="640" cy="552" r="8" fill="#f090a8" opacity=".78"/>
+<circle cx="720" cy="544" r="7" fill="#f8b0c0" opacity=".75"/>
+
+<!-- Palm tree left (ref img2) -->
+<g opacity=".82">
+  <path d="M148,700 Q154,580 156,490" stroke="#6a4820" stroke-width="11" fill="none" stroke-linecap="round"/>
+  <path d="M156,490 Q132,428 104,414" stroke="#5a3810" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M156,490 Q178,422 208,408" stroke="#5a3810" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <path d="M156,490 Q146,416 140,382" stroke="#5a3810" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <ellipse cx="96" cy="408" rx="55" ry="19" fill="#5aaa40" transform="rotate(-22 96 408)"/>
+  <ellipse cx="214" cy="402" rx="55" ry="19" fill="#4a9a30" transform="rotate(20 214 402)"/>
+  <ellipse cx="134" cy="378" rx="48" ry="17" fill="#6abb50" transform="rotate(-8 134 378)"/>
+  <ellipse cx="158" cy="370" rx="44" ry="16" fill="#5aaa40" transform="rotate(5 158 370)"/>
+</g>
+
+<!-- Banana leaves mid -->
+<g opacity=".78">
+  <path d="M320,700 Q324,580 322,480" stroke="#5a4018" stroke-width="9" fill="none" stroke-linecap="round"/>
+  <ellipse cx="292" cy="480" rx="68" ry="22" fill="#6abb48" transform="rotate(-28 292 480)"/>
+  <ellipse cx="352" cy="496" rx="62" ry="20" fill="#5aaa38" transform="rotate(22 352 496)"/>
+  <ellipse cx="308" cy="454" rx="58" ry="18" fill="#78cc58" transform="rotate(-6 308 454)"/>
+</g>
+
+<!-- DECORATED ELEPHANT (ref img2, left side with pink jhul) -->
+<g transform="translate(92,480)" class="ew" opacity=".92">
+  <ellipse cx="0" cy="0" rx="90" ry="70" fill="#606070"/>
+  <ellipse cx="0" cy="0" rx="80" ry="62" fill="#707080"/>
+  <!-- Pink jhul (decorative cloth) -->
+  <path d="M-75,-24 Q-64,-56 0,-62 Q64,-56 75,-24 L70,44 Q0,62 -70,44Z" fill="#e87090" opacity=".88"/>
+  <path d="M-75,-24 Q-64,-56 0,-62 Q64,-56 75,-24" fill="none" stroke="#c9933a" stroke-width="3"/>
+  <path d="M-70,44 Q0,62 70,44" fill="none" stroke="#c9933a" stroke-width="3"/>
+  <!-- Gold medallion -->
+  <circle cx="0" cy="-12" r="18" fill="none" stroke="#c9933a" stroke-width="2.2"/>
+  <circle cx="0" cy="-12" r="12" fill="#e8c87a" opacity=".6"/>
+  <circle cx="0" cy="-12" r="6" fill="#c9933a"/>
+  <!-- Head -->
+  <ellipse cx="-74" cy="-24" rx="48" ry="40" fill="#686878"/>
+  <ellipse cx="-74" cy="-24" rx="40" ry="34" fill="#707080"/>
+  <!-- Eye -->
+  <circle cx="-88" cy="-32" r="7" fill="#202020"/>
+  <circle cx="-86" cy="-34" r="2.5" fill="#fff"/>
+  <!-- Trunk -->
+  <path d="M-118,-34 Q-144,-22 -148,12 Q-150,36 -128,46 Q-114,52 -106,40" stroke="#686878" stroke-width="20" fill="none" stroke-linecap="round"/>
+  <path d="M-118,-34 Q-142,-22 -144,12 Q-146,34 -124,44" stroke="#787888" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <!-- Tusk -->
+  <path d="M-110,-12 Q-136,-6 -140,10" stroke="#e8e0cc" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <!-- Headdress (maatha patti) -->
+  <path d="M-48,-62 Q-74,-80 -100,-62" fill="#c9933a" opacity=".92"/>
+  <path d="M-58,-66 Q-74,-84 -90,-66" fill="#e8c87a" opacity=".82"/>
+  <circle cx="-74" cy="-86" r="7.5" fill="#e87090"/>
+  <circle cx="-74" cy="-86" r="4.5" fill="#f8a0b8"/>
+  <!-- Legs -->
+  <rect x="-56" y="58" width="24" height="50" rx="9" fill="#606070"/>
+  <rect x="-22" y="58" width="24" height="50" rx="9" fill="#606070"/>
+  <rect x="12" y="58" width="24" height="50" rx="9" fill="#606070"/>
+  <rect x="46" y="58" width="24" height="50" rx="9" fill="#606070"/>
+</g>
+
+<!-- FLYING PEACOCK top centre (ref img2 coral/teal flying peacock) -->
+<g transform="translate(420,95)" class="fly" opacity=".9">
+  <path d="M0,0 Q-92,-38 -136,-14" stroke="#e87090" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <path d="M0,0 Q92,-38 136,-14" stroke="#4a90a8" stroke-width="22" stroke-linecap="round" fill="none"/>
+  <path d="M0,0 Q-78,-24 -116,2" stroke="#f5a8c0" stroke-width="13" stroke-linecap="round" fill="none"/>
+  <path d="M0,0 Q78,-24 116,2" stroke="#68b0c0" stroke-width="13" stroke-linecap="round" fill="none"/>
+  <ellipse cx="0" cy="7" rx="22" ry="14" fill="#2a8898"/>
+  <ellipse cx="0" cy="7" rx="14" ry="9" fill="#48a8b8"/>
+  <path d="M0,14 Q24,40 20,68" stroke="#2a8898" stroke-width="7" fill="none"/>
+  <path d="M0,14 Q30,44 28,72" stroke="#60a0b0" stroke-width="4" fill="none"/>
+  <circle cx="-18" cy="-5" r="12" fill="#1a7888"/>
+  <circle cx="-18" cy="-5" r="7" fill="#30909a"/>
+  <circle cx="-24" cy="-10" r="3.5" fill="#181808"/>
+  <circle cx="-23" cy="-11.5" r="1.4" fill="#fff"/>
+  <path d="M-18,-17 Q-24,-30 -22,-36" stroke="#48b0b8" stroke-width="2.5"/>
+  <path d="M-18,-17 Q-18,-32 -17,-38" stroke="#48b0b8" stroke-width="2.5"/>
+  <circle cx="-22" cy="-37" r="3.5" fill="#70c8c0"/>
+  <circle cx="-17" cy="-39" r="3" fill="#70c8c0"/>
+  <path d="M-28,-3 Q-38,-2 -34,2" fill="#c09020"/>
+</g>
+
+<!-- Ground peacock right (ref img2) -->
+<g transform="translate(530,510)" class="ps" opacity=".9">
+  <path d="M0,0 Q-44,-62 -54,-92" stroke="#286898" stroke-width="2.5" fill="none"/>
+  <path d="M0,0 Q-32,-68 -36,-100" stroke="#3a7898" stroke-width="2.2" fill="none"/>
+  <path d="M0,0 Q-12,-70 -10,-104" stroke="#286898" stroke-width="2" fill="none"/>
+  <path d="M0,0 Q8,-70 12,-104" stroke="#3a8082" stroke-width="2" fill="none"/>
+  <path d="M0,0 Q32,-66 42,-96" stroke="#287888" stroke-width="2.2" fill="none"/>
+  <path d="M0,0 Q46,-60 56,-88" stroke="#286898" stroke-width="2.5" fill="none"/>
+  <ellipse cx="-52" cy="-90" rx="7" ry="9" fill="#1a4070" opacity=".72"/>
+  <ellipse cx="-52" cy="-90" rx="4" ry="6" fill="#58a838" opacity=".82"/>
+  <ellipse cx="-34" cy="-98" rx="6" ry="8" fill="#1a4070" opacity=".7"/>
+  <ellipse cx="-9" cy="-102" rx="6" ry="8" fill="#1a4070" opacity=".68"/>
+  <ellipse cx="12" cy="-102" rx="6" ry="8" fill="#1a4070" opacity=".68"/>
+  <ellipse cx="41" cy="-94" rx="6" ry="8" fill="#1a4070" opacity=".7"/>
+  <ellipse cx="55" cy="-86" rx="7" ry="9" fill="#1a4070" opacity=".72"/>
+  <ellipse cx="55" cy="-86" rx="4" ry="6" fill="#58a838" opacity=".82"/>
+  <ellipse cx="0" cy="-7" rx="16" ry="24" fill="#1a6070"/>
+  <ellipse cx="0" cy="-7" rx="11" ry="16" fill="#28909a"/>
+  <path d="M0,-31 Q-4,-46 -2,-62" stroke="#1a6070" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <circle cx="-2" cy="-66" r="10" fill="#1a6070"/>
+  <circle cx="-2" cy="-66" r="6.5" fill="#28909a"/>
+  <path d="M-2,-76 Q-7,-88 -5,-94" stroke="#28909a" stroke-width="2.2"/>
+  <path d="M-2,-76 Q-1,-90 0,-96" stroke="#28909a" stroke-width="2.2"/>
+  <circle cx="-5" cy="-95" r="2.8" fill="#58c8a8"/>
+  <circle cx="0" cy="-97" r="2.4" fill="#58c8a8"/>
+  <circle cx="5" cy="-67" r="2.8" fill="#181808"/>
+  <line x1="-5" y1="17" x2="-8" y2="44" stroke="#8a6820" stroke-width="3"/>
+  <line x1="5" y1="17" x2="7" y2="44" stroke="#8a6820" stroke-width="3"/>
+</g>
+
+<!-- PINK ROSES top corners (ref img2) -->
+<!-- TL roses -->
+<g class="rs" style="transform-origin:75px 60px">
+  <path d="M0,0 Q65,22 118,54 Q150,76 128,118" stroke="#3a8030" stroke-width="3.5" fill="none"/>
+  <ellipse cx="48" cy="28" rx="20" ry="7.5" fill="#4a9038" transform="rotate(-30 48 28)"/>
+  <ellipse cx="102" cy="52" rx="18" ry="7" fill="#3a8028" transform="rotate(22 102 52)"/>
+  <ellipse cx="124" cy="88" rx="16" ry="6.5" fill="#4a9038" transform="rotate(-12 124 88)"/>
+  <circle cx="32" cy="20" r="28" fill="#e06080"/><circle cx="32" cy="20" r="21" fill="#e87898"/>
+  <circle cx="32" cy="20" r="14" fill="#f090a8"/><circle cx="32" cy="20" r="8" fill="#f8b0c0"/>
+  <circle cx="32" cy="20" r="3.5" fill="#ffd0d8"/>
+  <circle cx="86" cy="46" r="23" fill="#e06080"/><circle cx="86" cy="46" r="17" fill="#e87898"/>
+  <circle cx="86" cy="46" r="11" fill="#f090a8"/><circle cx="86" cy="46" r="5.5" fill="#f8b0c0"/>
+  <circle cx="122" cy="80" r="18" fill="#e06080" opacity=".9"/><circle cx="122" cy="80" r="13" fill="#e87898"/>
+  <circle cx="122" cy="80" r="8" fill="#f090a8"/>
+</g>
+<!-- TR roses (mirrored) -->
+<g class="rs" style="transform-origin:825px 60px;transform:scaleX(-1)">
+  <path d="M0,0 Q65,22 118,54 Q150,76 128,118" stroke="#3a8030" stroke-width="3.5" fill="none"/>
+  <ellipse cx="48" cy="28" rx="20" ry="7.5" fill="#4a9038" transform="rotate(-30 48 28)"/>
+  <ellipse cx="102" cy="52" rx="18" ry="7" fill="#3a8028" transform="rotate(22 102 52)"/>
+  <ellipse cx="124" cy="88" rx="16" ry="6.5" fill="#4a9038" transform="rotate(-12 124 88)"/>
+  <circle cx="32" cy="20" r="28" fill="#e06080"/><circle cx="32" cy="20" r="21" fill="#e87898"/>
+  <circle cx="32" cy="20" r="14" fill="#f090a8"/><circle cx="32" cy="20" r="8" fill="#f8b0c0"/>
+  <circle cx="32" cy="20" r="3.5" fill="#ffd0d8"/>
+  <circle cx="86" cy="46" r="23" fill="#e06080"/><circle cx="86" cy="46" r="17" fill="#e87898"/>
+  <circle cx="86" cy="46" r="11" fill="#f090a8"/><circle cx="86" cy="46" r="5.5" fill="#f8b0c0"/>
+  <circle cx="122" cy="80" r="18" fill="#e06080" opacity=".9"/><circle cx="122" cy="80" r="13" fill="#e87898"/>
+  <circle cx="122" cy="80" r="8" fill="#f090a8"/>
+</g>
+
+<!-- FLOATING LOTUS flowers (ref img2 bottom) -->
+<g transform="translate(210,630)" class="lb">
+  <ellipse cx="0" cy="9" rx="32" ry="9" fill="#9ad8a8" opacity=".52"/>
+  <ellipse cx="0" cy="0" rx="24" ry="15" fill="#f8b8d0"/>
+  <ellipse cx="-15" cy="-2" rx="11" ry="17" fill="#f0a8c0" transform="rotate(-30 -15 -2)"/>
+  <ellipse cx="15" cy="-2" rx="11" ry="17" fill="#f0a8c0" transform="rotate(30 15 -2)"/>
+  <ellipse cx="-24" cy="4" rx="9" ry="14" fill="#f0a8c0" opacity=".8" transform="rotate(-55 -24 4)"/>
+  <ellipse cx="24" cy="4" rx="9" ry="14" fill="#f0a8c0" opacity=".8" transform="rotate(55 24 4)"/>
+  <ellipse cx="0" cy="-6" rx="15" ry="11" fill="#f8c8d8"/>
+  <ellipse cx="0" cy="-10" rx="9" ry="13" fill="#f8d0e0"/>
+  <circle cx="0" cy="-12" r="6.5" fill="#fff0f5"/>
+  <circle cx="0" cy="-13" r="3" fill="#f8e0e8"/>
+</g>
+<g transform="translate(460,640)" class="lb" style="animation-delay:.8s">
+  <ellipse cx="0" cy="9" rx="36" ry="10" fill="#9ad8a8" opacity=".5"/>
+  <ellipse cx="0" cy="0" rx="27" ry="17" fill="#f8b8d0"/>
+  <ellipse cx="-17" cy="-2" rx="12" ry="19" fill="#f0a8c0" transform="rotate(-30 -17 -2)"/>
+  <ellipse cx="17" cy="-2" rx="12" ry="19" fill="#f0a8c0" transform="rotate(30 17 -2)"/>
+  <ellipse cx="-28" cy="4" rx="10" ry="15" fill="#f0a8c0" opacity=".78" transform="rotate(-55 -28 4)"/>
+  <ellipse cx="28" cy="4" rx="10" ry="15" fill="#f0a8c0" opacity=".78" transform="rotate(55 28 4)"/>
+  <ellipse cx="0" cy="-8" rx="10" ry="15" fill="#f8d0e0"/>
+  <circle cx="0" cy="-13" r="7" fill="#fff0f5"/>
+  <circle cx="0" cy="-14" r="3.5" fill="#f8e0e8"/>
+</g>
+<g transform="translate(720,635)" class="lb" style="animation-delay:1.5s">
+  <ellipse cx="0" cy="8" rx="29" ry="8.5" fill="#9ad8a8" opacity=".5"/>
+  <ellipse cx="0" cy="0" rx="21" ry="14" fill="#f8b8d0"/>
+  <ellipse cx="-13" cy="-2" rx="9" ry="15" fill="#f0a8c0" transform="rotate(-30 -13 -2)"/>
+  <ellipse cx="13" cy="-2" rx="9" ry="15" fill="#f0a8c0" transform="rotate(30 13 -2)"/>
+  <ellipse cx="-21" cy="4" rx="8" ry="12" fill="#f0a8c0" opacity=".8" transform="rotate(-55 -21 4)"/>
+  <ellipse cx="21" cy="4" rx="8" ry="12" fill="#f0a8c0" opacity=".8" transform="rotate(55 21 4)"/>
+  <ellipse cx="0" cy="-6" rx="8" ry="12" fill="#f8d0e0"/>
+  <circle cx="0" cy="-10" r="5.5" fill="#fff0f5"/>
+</g>
+<!-- Lily pads -->
+<ellipse cx="188" cy="648" rx="38" ry="11" fill="#5aaa40" opacity=".42"/>
+<ellipse cx="438" cy="656" rx="44" ry="12" fill="#5aaa40" opacity=".4"/>
+<ellipse cx="700" cy="650" rx="36" ry="10" fill="#5aaa40" opacity=".42"/>
+</svg>
+
+  <!-- scene 2 overlay text -->
+  <div style="position:relative;z-index:10;text-align:center;padding:320px 30px 50px;max-width:640px;margin:0 auto">
+    <div class="reveal">
+      <div style="display:flex;align-items:center;gap:14px;justify-content:center;margin-bottom:18px">
+        <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,#c9933a,transparent)"></div>
+        <span style="color:#c9933a;font-size:14px;letter-spacing:3px">✦ ✦ ✦</span>
+        <div style="flex:1;height:1px;background:linear-gradient(to right,transparent,#c9933a,transparent)"></div>
+      </div>
+      <p style="font-family:'Great Vibes',cursive;font-size:42px;color:#4a0820;text-shadow:0 2px 14px rgba(74,8,32,.12);line-height:1.25">
+        A celebration as grand as a royal court,<br>as warm as a marigold garland
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     EVENTS SECTION
+═══════════════════════════════════════════════════ -->
+<section class="events-sec">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.07" viewBox="0 0 800 700" preserveAspectRatio="xMidYMid slice">
+    <g transform="translate(100,100)"><ellipse rx="64" ry="40" fill="none" stroke="#c9933a" stroke-width="1.3"/><ellipse rx="64" ry="40" fill="none" stroke="#c9933a" stroke-width="1.3" transform="rotate(60)"/><ellipse rx="64" ry="40" fill="none" stroke="#c9933a" stroke-width="1.3" transform="rotate(120)"/><circle r="9" fill="#c9933a"/></g>
+    <g transform="translate(700,600)"><ellipse rx="64" ry="40" fill="none" stroke="#c9933a" stroke-width="1.3"/><ellipse rx="64" ry="40" fill="none" stroke="#c9933a" stroke-width="1.3" transform="rotate(60)"/><ellipse rx="64" ry="40" fill="none" stroke="#c9933a" stroke-width="1.3" transform="rotate(120)"/><circle r="9" fill="#c9933a"/></g>
+    <g transform="translate(400,350)"><ellipse rx="96" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6"/><ellipse rx="96" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(60)"/><ellipse rx="96" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(120)"/><circle r="13" fill="#c9933a"/></g>
+  </svg>
+
+  <div style="max-width:700px;margin:0 auto;position:relative;z-index:2">
+    <div class="reveal">
+      <div class="sec-lbl">Wedding Celebrations</div>
+      <div class="sec-script">All the Ceremonies</div>
+    </div>
+
+    <!-- Saturday 20 June -->
+    <div class="reveal day-gap">
+      <div class="day-hd">🌸 &nbsp; Saturday, 20 June 2026 &nbsp; 🌸</div>
+    </div>
+    <div class="ev-row reveal">
+      <div class="ev"><div class="ev-ic">🏠</div><div class="ev-nm">Grah Puja</div><div class="ev-dt">Saturday · 20 June 2026</div><div class="ev-tm">2:00 PM (Dopahar)</div></div>
+      <div class="ev"><div class="ev-ic">💛</div><div class="ev-nm">Haldi & Mehendi</div><div class="ev-dt">Saturday · 20 June 2026</div><div class="ev-tm">5:00 PM onwards</div></div>
+      <div class="ev"><div class="ev-ic">🏛</div><div class="ev-nm">Mandap Pujan</div><div class="ev-dt">Saturday · 20 June 2026</div><div class="ev-tm">6:30 PM (Sham)</div></div>
+    </div>
+
+    <!-- Sunday 21 June -->
+    <div class="reveal day-gap">
+      <div class="day-hd">🌸 &nbsp; Sunday, 21 June 2026 &nbsp; 🌸</div>
+    </div>
+    <div class="ev-row reveal">
+      <div class="ev"><div class="ev-ic">🏠</div><div class="ev-nm">Ghar Vivah & Mamera</div><div class="ev-dt">Sunday · 21 June 2026</div><div class="ev-tm">1:30 PM onwards</div></div>
+      <div class="ev"><div class="ev-ic">💛</div><div class="ev-nm">Haldi</div><div class="ev-dt">Sunday · 21 June 2026</div><div class="ev-tm">2:00 PM</div></div>
+      <div class="ev"><div class="ev-ic">🎵</div><div class="ev-nm">Mahila Sangeet</div><div class="ev-dt">Sunday · 21 June 2026</div><div class="ev-tm">Evening</div></div>
+    </div>
+
+    <!-- Monday 22 June — Wedding Day -->
+    <div class="reveal day-gap">
+      <div class="day-hd">✨ &nbsp; Monday, 22 June 2026 — Wedding Day &nbsp; ✨</div>
+    </div>
+    <div class="ev-row reveal">
+      <div class="ev"><div class="ev-ic">💍</div><div class="ev-nm">Sagaai</div><div class="ev-dt">Monday · 22 June 2026</div><div class="ev-tm">10:00 AM (Subah)</div></div>
+      <div class="ev"><div class="ev-ic">🐘</div><div class="ev-nm">Baraat</div><div class="ev-dt">Monday · 22 June 2026</div><div class="ev-tm">3:00 PM onwards</div></div>
+      <div class="ev star"><div class="ev-ic">🔥</div><div class="ev-nm">Shubh Lagna</div><div class="ev-dt">Monday · 22 June 2026</div><div class="ev-tm">6:58 PM ✨</div></div>
+    </div>
+    <div class="ev-row one reveal day-gap" style="margin-top:12px">
+      <div class="ev star"><div class="ev-ic">🎊</div><div class="ev-nm">Ashirwad Samaroh & Grand Dinner</div><div class="ev-dt">Monday · 22 June 2026</div><div class="ev-tm">7:00 PM onwards — till you arrive!</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAGNA HERO -->
+<section class="lagna">
+  <div class="sparks" id="sparks"></div>
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.2" viewBox="0 0 900 500" preserveAspectRatio="none">
+    <path d="M0,500 L0,250 Q450,0 900,250 L900,500Z" fill="none" stroke="#e8c87a" stroke-width="2"/>
+    <path d="M60,500 L60,270 Q450,36 840,270 L840,500" fill="none" stroke="#e8c87a" stroke-width="1" opacity=".5"/>
+    <circle cx="450" cy="38" r="36" fill="none" stroke="#e8c87a" stroke-width="1.2"/>
+    <circle cx="450" cy="38" r="20" fill="none" stroke="#e8c87a" stroke-width=".8"/>
+  </svg>
+  <div class="reveal" style="position:relative;z-index:2">
+    <div class="l-lbl">✦ &nbsp; Shubh Vivah &nbsp; ✦</div>
+    <div class="l-title">Mangal Parinay</div>
+    <div class="l-names">Yash &amp; Nupur</div>
+    <div class="l-date">Monday · 22 June 2026</div>
+    <div class="l-time">Muhurat : <strong>6:58 PM</strong></div>
+    <div class="l-sub">Ashirwad Samaroh &amp; Grand Dinner<br>from 7:00 PM onwards</div>
+  </div>
+</section>
+
+<!-- VENUE -->
+<section class="venue">
+  <svg style="position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:.08" viewBox="0 0 800 500" preserveAspectRatio="xMidYMid slice">
+    <g transform="translate(400,250)">
+      <ellipse rx="95" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(0)"/>
+      <ellipse rx="95" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(30)"/>
+      <ellipse rx="95" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(60)"/>
+      <ellipse rx="95" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(90)"/>
+      <ellipse rx="95" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(120)"/>
+      <ellipse rx="95" ry="60" fill="none" stroke="#c9933a" stroke-width="1.6" transform="rotate(150)"/>
+      <circle r="15" fill="#c9933a"/>
+    </g>
+  </svg>
+  <div class="reveal" style="position:relative;z-index:2">
+    <svg width="68" height="76" viewBox="0 0 68 76" style="display:block;margin:0 auto 18px;opacity:.72">
+      <ellipse cx="34" cy="11" rx="9" ry="8" fill="#5a3010"/>
+      <path d="M28,11 Q34,4 40,11" fill="#7a4820"/>
+      <path d="M28,11 Q17,2 11,7 Q22,9 34,17" fill="#4a8a28" opacity=".9"/>
+      <path d="M40,11 Q51,2 57,7 Q46,9 34,17" fill="#4a8a28" opacity=".9"/>
+      <rect x="26" y="19" width="16" height="7" rx="2" fill="#c9933a"/>
+      <rect x="24" y="24" width="20" height="3" rx="1" fill="#e8c87a"/>
+      <path d="M17,28 Q8,40 10,56 Q16,71 34,73 Q52,71 58,56 Q60,40 51,28Z" fill="#b07a28"/>
+      <path d="M22,43 Q34,49 46,43" stroke="#e8c87a" stroke-width="1.2" fill="none"/>
+      <path d="M20,54 Q34,61 48,54" stroke="#e8c87a" stroke-width="1.2" fill="none"/>
+      <ellipse cx="34" cy="73" rx="17" ry="4" fill="#8a5a18"/>
+    </svg>
+    <div class="v-lbl">Venue</div>
+    <div class="v-name">
+  <a href="https://maps.app.goo.gl/Cn95NVtMu9GRqACs8" target="_blank" rel="noopener noreferrer">
+    Maa Umiya Dham Parisar
+  </a>
+</div>
+    <div class="v-addr">Rau, Rangwasa Road, Indore</div>
+    <!-- marigold garland -->
+    <svg width="540" height="34" viewBox="0 0 540 34" style="display:block;margin:28px auto 0">
+      <defs>
+        <g id="mf">
+          <ellipse rx="9" ry="3.5" fill="#e87810" opacity=".9"/>
+          <ellipse rx="9" ry="3.5" fill="#e87810" opacity=".9" transform="rotate(45)"/>
+          <ellipse rx="9" ry="3.5" fill="#e87810" opacity=".9" transform="rotate(90)"/>
+          <ellipse rx="9" ry="3.5" fill="#e87810" opacity=".9" transform="rotate(135)"/>
+          <circle r="5.5" fill="#f0a020"/><circle r="2.5" fill="#f8c840"/>
+        </g>
+      </defs>
+      <path d="M0,11 Q135,30 270,11 Q405,30 540,11" stroke="#8a5818" stroke-width="1.3" fill="none"/>
+      <use href="#mf" transform="translate(14,14)"/>
+      <use href="#mf" transform="translate(60,22)"/>
+      <use href="#mf" transform="translate(114,27)"/>
+      <use href="#mf" transform="translate(172,21)"/>
+      <use href="#mf" transform="translate(226,14)"/>
+      <use href="#mf" transform="translate(270,11)"/>
+      <use href="#mf" transform="translate(314,14)"/>
+      <use href="#mf" transform="translate(368,21)"/>
+      <use href="#mf" transform="translate(426,27)"/>
+      <use href="#mf" transform="translate(480,22)"/>
+      <use href="#mf" transform="translate(526,14)"/>
+    </svg>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <svg width="480" height="22" viewBox="0 0 480 22" style="display:block;margin:0 auto 22px;opacity:.52">
+    <ellipse cx="240" cy="11" rx="15" ry="9.5" fill="rgba(28,90,75,.28)" stroke="#2a7860" stroke-width=".9"/>
+    <ellipse cx="240" cy="11" rx="9" ry="6" fill="rgba(28,75,155,.22)" stroke="#2855a0" stroke-width=".9"/>
+    <ellipse cx="240" cy="11" rx="4.5" ry="3" fill="#254888" opacity=".5"/>
+    <path d="M225,11 Q198,4 170,6" stroke="#3a7852" stroke-width="1.1" fill="none"/>
+    <path d="M225,11 Q198,17 170,15" stroke="#3a7852" stroke-width=".9" fill="none" opacity=".7"/>
+    <path d="M194,7 Q166,1 135,3" stroke="#4aa070" stroke-width=".8" fill="none" opacity=".6"/>
+    <path d="M160,4 Q128,0 94,2" stroke="#5ab080" stroke-width=".65" fill="none" opacity=".5"/>
+    <line x1="94" y1="2" x2="16" y2="7" stroke="#6ac090" stroke-width=".5" opacity=".35"/>
+    <path d="M255,11 Q282,4 310,6" stroke="#3a7852" stroke-width="1.1" fill="none"/>
+    <path d="M255,11 Q282,17 310,15" stroke="#3a7852" stroke-width=".9" fill="none" opacity=".7"/>
+    <path d="M286,7 Q314,1 345,3" stroke="#4aa070" stroke-width=".8" fill="none" opacity=".6"/>
+    <path d="M320,4 Q352,0 386,2" stroke="#5ab080" stroke-width=".65" fill="none" opacity=".5"/>
+    <line x1="386" y1="2" x2="464" y2="7" stroke="#6ac090" stroke-width=".5" opacity=".35"/>
+  </svg>
+  <div class="f-msg">We await your presence &amp; blessings 🙏</div>
+  <div class="f-fam">With love — The Badia &amp; Patidar Families</div>
+  <div style="margin-top:18px;color:rgba(255,255,255,.3);font-size:12px;letter-spacing:3px">22 · 06 · 2026</div>
+</footer>
+
+<script>
+// Petals
+const pe=document.getElementById('petals');
+const pc=['rgba(240,152,176,.82)','rgba(248,184,204,.78)','rgba(200,92,132,.72)','rgba(255,172,196,.72)','rgba(248,124,160,.68)','rgba(255,206,218,.65)'];
+for(let i=0;i<34;i++){
+  const p=document.createElement('div');p.className='fp';
+  const w=9+Math.random()*14,h=w*.62,fx=(Math.random()-.5)*200,fr=Math.random()*760-380;
+  p.style.cssText=`left:${Math.random()*100}%;--w:${w}px;--h:${h}px;--c:${pc[i%pc.length]};--d:${7+Math.random()*11}s;--dl:${-Math.random()*16}s;--x:${fx}px;--r:${fr}deg`;
+  pe.appendChild(p);
+}
+// Sparks
+const se=document.getElementById('sparks');
+['✨','💫','⭐','🌟','✦','·','˚'].forEach(c=>{
+  for(let i=0;i<2;i++){
+    const s=document.createElement('div');s.className='spk';s.textContent=c;
+    s.style.cssText=`left:${Math.random()*100}%;bottom:${5+Math.random()*75}%;--ss:${10+Math.random()*14}px;--sd:${2+Math.random()*4}s;--sl:${-Math.random()*9}s`;
+    se.appendChild(s);
+  }
+});
+// Scroll reveal
+const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');io.unobserve(e.target)}})},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
